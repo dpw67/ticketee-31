@@ -5,6 +5,8 @@ class Notifier < ActionMailer::Base
     @comment = comment
     @user = user
     mail(:to => user.email,
+         :from => "Ticketee <ticketee31+
+             #{comment.project.id}+#{comment.ticket_id}@gmail.com>",
          :subject => "[ticketee] #{comment.ticket.project.name} - #{comment.ticket.title}")
   end
 
