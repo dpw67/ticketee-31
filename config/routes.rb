@@ -1,5 +1,11 @@
 Ticketee31::Application.routes.draw do
 
+  namespace :api do
+    namespace :v1 do
+      resources :projects
+    end
+  end
+
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   get '/awaiting_confirmation',
