@@ -23,7 +23,9 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+group :development do
+  gem 'capistrano'
+end
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
@@ -41,6 +43,10 @@ group :test do
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'
+end
+
+group :production do
+  gem 'pg'
 end
 
 gem 'devise', '~> 1.4.2'
