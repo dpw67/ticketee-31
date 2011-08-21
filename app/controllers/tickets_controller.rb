@@ -8,6 +8,8 @@ class TicketsController < ApplicationController
   before_filter :authorize_update!, :only => [:edit, :update]
   before_filter :authorize_delete!, :only => :destroy
 
+  cache_sweeper TicketsSweeeper
+
   def new
     @ticket = @project.tickets.build
     @ticket.assets.build
@@ -56,6 +58,7 @@ class TicketsController < ApplicationController
 
   def search
     @tickets = @project.tickets.search(params[:search])
+    @tickets = @tickets.page(params[:page])
     render "projects/show"
   end
 

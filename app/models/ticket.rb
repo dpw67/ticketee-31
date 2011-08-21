@@ -4,6 +4,8 @@ class Ticket < ActiveRecord::Base
     label :state, :from => :state, :field => "name"
   end
 
+  paginates_per 50
+
   after_create :creator_watches_me
 
   belongs_to :project
