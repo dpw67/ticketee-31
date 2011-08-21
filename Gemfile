@@ -49,10 +49,13 @@ group :production do
   gem 'pg'
 end
 
+gem "oa-oauth", :require => "omniauth/oauth"
 gem 'devise', '~> 1.4.2'
 gem 'cancan'
 
 gem 'paperclip'
 gem 'searcher'
+gem 'kaminari'
+
 
 
